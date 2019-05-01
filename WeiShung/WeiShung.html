@@ -1,12 +1,874 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "微軟正黑體", "Microsoft JhengHei", "Segoe UI Semibold", "Segoe UI", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+        }
+
+        /* background color */
+        body {
+            background: #aedafc;
+            /* Old browsers */
+            background: -moz-linear-gradient(top, #aedafc 0%, #addbe3 34%, #e3dbff 76%, #fdeae1 100%);
+            /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, #aedafc 0%, #addbe3 34%, #e3dbff 76%, #fdeae1 100%);
+            /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, #aedafc 0%, #addbe3 34%, #e3dbff 76%, #fdeae1 100%);
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#aedafc', endColorstr='#fdeae1', GradientType=0);
+            /* IE6-9 */
+            background-attachment: fixed;
+
+        }
+
+        /* section margin */
+        /* banner margin */
+        .banner {
+            margin-top: 10px;
+        }
+
+        /* all title magin */
+        .title {
+            margin-top: 80px;
+
+        }
+
+        /* all subtitle magin */
+        .subtitle {
+            margin: 55px 0px 20px;
+        }
+
+        /* font */
+        /* all font style */
+        p,
+        a {
+            letter-spacing: 3px;
+            color: rgb(79, 81, 100);
+        }
+
+        /* normal word size */
+        p {
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        /* stress word size */
+        .stress {
+            font-size: 20px;
+            font-weight: 600;
+            color: rgb(82, 82, 165);
+            padding-top: 10px;
+        }
+
+        /* mobile nav */
+        /* mobile nav button style */
+        .mobile-nav button {
+            border-radius: 10%;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-style: none;
+            padding: 10px;
+        }
+
+        /* mobile nav button img width */
+        .mobile-nav button img {
+            min-width: 20px;
+        }
+
+        /* mobile nav color */
+        .mobile-nav {
+            background-color: rgb(148, 198, 255);
+            position: sticky;
+            top: 0px;
+            z-index: 99;
+        }
+
+
+        /* mobile nav li height */
+        #navbar-collapse {
+            height: 100vh;
+        }
+
+        /* mobile nav li  img margin */
+        .navbar-collapse li {
+            height: 23vh;
+        }
+.pc-nav{
+    position: fixed;
+    bottom: 0px;
+    z-index: 80;
+}
+        .top img {
+            position: fixed;
+            bottom: 8vh;
+            right: 2vh;
+            z-index: 90;
+            width: 80px;
+            height: auto;
+        }
+
+
+        /* 3-1 day */
+        /* carousel style */
+        #carouselExampleIndicators3 {
+            margin-bottom: 20px;
+        }
+
+        #carouselExampleIndicators3 .carousel-inner {
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 35px;
+        }
+
+        /* statement margin */
+        #carouselExampleIndicators3 .carousel-inner .statement {
+            padding: 10px 20px 5px 30px;
+
+        }
+
+        /* 3-1btn */
+        /* btn style */
+        .daybtn .btn {
+            background-color: rgb(255, 255, 255, 0.3);
+            color: #243778;
+            font-weight: 600;
+            font-size: 20px;
+            width: 80px;
+            height: 80px;
+            margin: 18px 10px;
+            border-radius: 20px;
+        }
+
+        @media (max-width:500px) {
+            .daybtn .btn {
+                font-size: 15px;
+                width: 60px;
+                height: 60px;
+                margin: 3px;
+
+            }
+        }
+
+        /* btn:focus style */
+        .daybtn .btn:focus {
+            background-color: #EFC5BA;
+            color: #732F24;
+            box-shadow: none;
+        }
+
+
+
+        /* 3-2 serve */
+        /* table style */
+        .table {
+            border-collapse: separate;
+            border-spacing: 0;
+            background-color: rgb(255, 255, 255, 0.3);
+            border-radius: 15px;
+        }
+
+        /* td vertical position */
+        .table td {
+            vertical-align: middle;
+        }
+
+        /* table font color */
+        tr {
+            color: rgb(79, 81, 100);
+        }
+
+        /* thead */
+        /* thead color */
+        thead {
+            background-color: rgba(135, 207, 235, 0.7);
+        }
+
+        /* thead radius */
+        th:first-child {
+            border-top-left-radius: 12px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 12px;
+        }
+
+        /* table color striped */
+        .table .striped {
+            background-color: rgba(255, 255, 255, 0.2)
+        }
+
+        /* 4-1,4-2 list */
+        /* background */
+        .list {
+            background-color: rgb(255, 255, 255, 0.5);
+            border-radius: 8%;
+            margin: 10px;
+
+        }
+
+        /* list title margin*/
+        .list-title {
+            margin: 20px 0px 10px;
+        }
+
+        /* list item style */
+        .list-group-item {
+            background-color: rgb(255, 255, 255, 0.0);
+            border-top: none;
+            border-right: none;
+            border-left: none;
+
+        }
+
+        /* footer */
+        /* footer background */
+        footer {
+            height: auto;
+            background-image: url(img/0_footer.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* breadcrumb style */
+        .breadcrumb {
+            background-color: #CCC28C;
+        }
+
+        /* addr style */
+        .addr {
+            font-size: 17px;
+            letter-spacing: 3px;
+            margin: 8px;
+
+        }
+
+        /* footer information position */
+        footer .container {
+            padding-top: 220px;
+        }
+
+        /* for img overflow */
+        .container {
+            overflow: hidden;
+        }
+
+        /* copyright */
+        .small {
+            padding-top: 10px;
+        }
+
+        /* .map img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        } */
+    </style>
 </head>
+
 <body>
-    
+    <!-- nav pc -->
+    <nav class="container d-none d-sm-none d-md-block">
+        <div class="nav nav-justified d-flex align-items-end">
+            <a class="nav-item nav-link" href="#born"> <img class="img-fluid icon" src="img/0_icon01-birth.png"
+                    alt="nav"></a>
+            <a class="nav-item nav-link" href="#introduce"> <img class="img-fluid icon"
+                    src="img/0_icon02-environment.png" alt="nav"></a>
+            <a class="nav-item nav-link" href="#"><img class="img-fluid icon" src="img/0_logo.png" alt="weishung-logo">
+            </a>
+            <a class="nav-item nav-link" href="#day"> <img class="img-fluid icon" src="img/0_icon03-day.png"
+                    alt="nav"></a>
+            <a class="nav-item nav-link" href="#information"> <img class="img-fluid icon" src="img/0_icon04-news.png"
+                    alt="nav"></a>
+        </div>
+    </nav>
+    <!-- nav mobile -->
+    <nav class="mobile-nav d-sm-block d-md-none">
+        <div class="container-fluid">
+            <div class="nav nav-justified row d-flex align-items-center">
+                <a class="nav-item nav-link col-3" href="#"><img class="img-fluid icon" src="img/0_mobile logo.png"
+                        alt=""></a>
+                <a class="nav-item nav-link col-7" href="#"><img class="img-fluid icon" src="img/0_mobile name.png"
+                        alt="nav"></a>
+                <div class="button col-2 ml-auto">
+                    <button type="button" class="navbar-toggle d-flex align-items-center" data-toggle="collapse"
+                        data-target="#navbar-collapse"><img class="img-fluid icon" src="img/0_mobile menu.png" alt="">
+                    </button>
+                </div>
+
+
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav d-flex align-items-center">
+                    <li>
+                        <a class="nav-item nav-link" href="#born"> <img class="" src="img/0_icon01-birth.png"
+                                alt="nav"></a>
+
+                    </li>
+                    <li>
+                        <a class="nav-item nav-link" href="#introduce"> <img class="" src="img/0_icon02-environment.png"
+                                alt="nav"></a>
+
+                    </li>
+
+                    <li>
+                        <a class="nav-item nav-link" href="#day"> <img class="" src="img/0_icon03-day.png"
+                                alt="nav"></a>
+
+                    </li>
+                    <li>
+                        <a class="nav-item nav-link" href="#information"> <img class="" src="img/0_icon04-news.png"
+                                alt="nav"></a>
+
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+     <!-- nav pc menu-->
+    <!-- <div class="pc-nav d-flex justify-content-center"><img src="img/0_pc-menu.png" alt=""></div> -->
+    <!-- back to top -->
+    <div class="top container-fluid row">
+        <a href="#"> <img src="img/0_top-button.png" alt="back to top"></a>
+    </div>
+
+    <!-- header -->
+    <header>
+        <div class="container">
+            <div class="banner">
+                <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators1" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/0_banner-01.png" class="d-block w-100" alt="0">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/0_banner-02.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/0_banner-03.png" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- section1-1 -->
+    <section id="born">
+        <div class="container text-center">
+            <div class="row d-flex justify-content-center">
+                <div class="col-10 col-md-6">
+                    <div class="d-flex justify-content-center">
+                        <img class="title" src="img/0_word-1-1-birth.png" alt="icon">
+                    </div>
+                    <div class="teach-idea">
+                        <div class="d-flex justify-content-center">
+                            <img class="subtitle" src="img/0_word-1-1-idea.png" alt="icon">
+                        </div>
+                        <p class="stress">
+                            「偉大的母愛能讓孩子成長茁壯、自由翱翔」
+                        </p>
+                        <p>
+                            我們秉持著愛與耐心，尊重每個孩子獨有的性格，希望每個寶寶都能在安全的環境，周全的照顧下適性成長，同時，將寶寶託付給偉翔的家長們，也能放心工作，為孩子的未來打拼。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="about text-center">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-md-7">
+                        <div class="d-flex justify-content-center">
+                            <img class="subtitle" src="img/0_word-1-2-about.png" alt="icon">
+                        </div>
+                        <p>
+                            「偉翔嬰幼兒園」是位於潭子頭張路的居家托兒所，以口耳相傳的方式經營超過20年。由於接收委託數量較少，每個寶寶都能得到周全的照顧，深受家長們的信賴，為政府合法立案之托育機構。本中心提供0至5歲嬰幼兒專業照護，並加強把關環境的衛生與防疫措施，保母均擁有保母執照，具備專業護理、營養、幼保等資源，提供家長與寶寶全面的服務。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="history text-center">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-md-6">
+                        <div class="history-line">
+                            <div class="d-flex justify-content-center">
+                                <img class="subtitle" src="img/0_word-1-3-history.png" alt="icon">
+                            </div>
+                            <h6>
+                                —　1996　—
+                            </h6>
+                            <h5 class="stress">
+                                成立偉翔嬰幼兒園
+                            </h5>
+                            <p>
+                                園長誕下第一胎，辭去工作照顧長女的同時，也收到同事的委託，隨後以客戶相互介紹的方式接受育兒委託，持續經營偉翔嬰幼兒園。
+                            </p>
+                        </div>
+                        <div class="history-line">
+                            <h6>
+                                —　2003　—
+                            </h6>
+                            <h5 class="stress">
+                                加入台中市保母協會。
+                                </p>
+                                <p>
+                                    為提供更專業的照顧，保母均通過台中市保母協會的專業訓練，並取得保母執照，之後亦持續進修相關課程，與寶寶一同成長。
+                                </p>
+                        </div>
+                        <div class="history-line">
+                            <h6>
+                                —　2010　—
+                            </h6>
+                            <h5 class="stress">
+                                成為政府合法立案之托育機構。
+                            </h5>
+                            <p>
+                                配合衛生福利部-社會及家庭署的居家托育服務相關法規，實行登記，並通過定時環境檢測與稽查，成為政府合法立案之托育機構。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section 2-1 -->
+    <section id="introduce" class="container">
+        <div class="d-flex justify-content-center">
+            <img class="title" src="img/0_word-2-1-environment.png" alt="icon">
+        </div>
+        <div class="enviroment">
+            <div class="d-flex justify-content-center">
+                <img class="subtitle" src="img/0_word-2-1-environment intoduce.png" alt="icon">
+            </div>
+            <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/0_2-1-photo1.png" class="d-block w-100" alt="0">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/0_2-1-photo1.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/0_2-1-photo1.png" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="babysister">
+            <div class="d-flex justify-content-center">
+                <img class="subtitle" src="img/0_word-2-2-babysister intoduce.png" alt="icon">
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <img class="img-fluid" src="img/0_2-2-photo1.png" alt="babysister">
+                    <h5 class="stress">詹秋霞</h5>
+                    <p>幼教年資：22年<br>執照 : 丙級保母人員合格證、急救合格證</p>
+                </div>
+                <div class="col-6">
+                    <img class="img-fluid" src="img/0_2-2-photo2.png" alt="babysister">
+                    <h5 class="stress">詹素綢</h5>
+                    <p>幼教年資：15年<br>執照 : 丙級保母人員合格證、急救合格證</p>
+                    <p></p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- section3-1 -->
+    <section id="day">
+        <section class="schedule container">
+            <div class="d-flex justify-content-center">
+                <img class="title" src="img/0_word-3-1-day.png" alt="icon">
+            </div>
+            <div class="day">
+                <div class="d-flex justify-content-center">
+                    <img class="subtitle" src="img/0_word-3-1-day introduce.png" alt="icon">
+                </div>
+            </div>
+
+            <!-- carousel3 -->
+            <!-- button -->
+            <div class="row d-flex justify-content-center">
+                <div id="carouselExampleIndicators3" class="carousel slide col-xl-9 col-lg-12 order-xl-2 "
+                    data-ride="carousel">
+                    <div class="carousel-inner ">
+                        <!-- subtitle -->
+                        <div class="carousel-item active">
+                            <img src="img/0_3-1-7-00.png" class="d-block w-100" alt="0">
+                            <div class="statement">
+                                <h5 class="stress">延時托兒(早上) 07:00</h5>
+                                <p>07:00~08:00為延時托兒時間，可依提供的奶粉或副食品餵孩子吃早餐。</p>
+                            </div>
+                        </div>
+                        <!-- carousel3 item -->
+                        <div class="carousel-item">
+                            <img src="img/0_3-1-8-00.png" class="d-block w-100" alt="1">
+                            <div class="statement">
+                                <h5 class="stress">開園 08:00</h5>
+                                <p>平時托兒開始，可依提供的奶粉或副食品餵孩子吃早餐，沒睡飽的孩子可小睡一陣子。</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/0_3-1-9-30.png" class="d-block w-100" alt="2">
+                            <div class="statement">
+                                <h5 class="stress">自由活動 09:30</h5>
+                                <p>09:30~11:00讓孩子自由活動，練習走路或爬行，1歲以上孩子可操作教具邊遊戲邊學習。</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/0_3-1-11-00.png" class="d-block w-100" alt="3">
+                            <div class="statement">
+                                <h5 class="stress">故事時間 11:00</h5>
+                                <p>保母念故事給0~1歲的孩子聽，不僅從故事中讀到啟發，也能在保母輔助下學習認字。</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/0_3-1-12-00.png" class="d-block w-100" alt="4">
+                            <div class="statement">
+                                <h5 class="stress">午餐時間 12:00</h5>
+                                <p>每早燉煮的美味料理，如湯麵、粥等，加入當季食材，營養均衡，養成孩子不挑食的好習慣。</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/0_3-1-15-00.png" class="d-block w-100" alt="5">
+                            <div class="statement">
+                                <h5 class="stress">午睡時間 ~15:00</h5>
+                                <p>為避免孩子睡不飽，時間較彈性，會播放輕音樂陪伴孩子入睡，午休時間大約到三點結束。</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/0_3-1-16-00.png" class="d-block w-100" alt="6">
+                            <div class="statement">
+                                <h5 class="stress">點心時間 16:00</h5>
+                                <p>準備當季新鮮水果、優格或布丁等點心，讓孩子不餓肚子，活力迎接下午的活動。</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/0_3-1-17-00.png" class="d-block w-100" alt="7">
+                            <div class="statement">
+                                <h5 class="stress">遊戲時間 17:00</h5>
+                                <p>天氣好時讓孩子到附近的公園散步，雨天則在室內操作教具，或進行認字遊戲和畫畫等活動。</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/0_3-1-18-00.png" class="d-block w-100" alt="8">
+                            <div class="statement">
+                                <h5 class="stress">平時托兒結束 18:00</h5>
+                                <p>向來接孩子的家長報告今天的狀況，不論好事或壞事都會向家長說明，讓家長了解孩子的狀況。</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/0_3-1-19-00.png" class="d-block w-100" alt="9">
+                            <div class="statement">
+                                <h5 class="stress">延時托兒(晚上) ~19:00</h5>
+                                <p>配合較晚下班的家長，延長一小時托兒時間，會為孩子準備簡單營養的晚餐，19:00結束托兒。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- navigation -->
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators3" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators3" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+
+                    <!-- pagination
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carouselExampleIndicators3" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carouselExampleIndicators3" data-slide-to="1"></li>
+                                            <li data-target="#carouselExampleIndicators3" data-slide-to="2"></li>
+                                            <li data-target="#carouselExampleIndicators3" data-slide-to="3"></li>
+                                            <li data-target="#carouselExampleIndicators3" data-slide-to="4"></li>
+                                            <li data-target="#carouselExampleIndicators3" data-slide-to="5"></li>
+                                            <li data-target="#carouselExampleIndicators3" data-slide-to="6"></li>
+                                            <li data-target="#carouselExampleIndicators3" data-slide-to="7"></li>
+                                            <li data-target="#carouselExampleIndicators3" data-slide-to="8"></li>
+                                            <li data-target="#carouselExampleIndicators3" data-slide-to="9"></li>
+                                        </ol> -->
+                </div>
+                <!-- button left-->
+                <div class="col-xl-1 col-lg-12 d-flex justify-content-center order-xl-1 ">
+                    <div class="">
+                        <div class="daybtn d-flex flex-xl-column justify-content-between">
+                            <input type="button" class="btn slide-zero" value="07:00">
+                            <input type="button" class="btn slide-one" value="08:00">
+                            <input type="button" class="btn slide-two" value="09:30">
+                            <input type="button" class="btn slide-three" value="11:00">
+                            <input type="button" class="btn slide-four" value="12:00">
+                        </div>
+                    </div>
+                </div>
+                <!-- button right-->
+                <div class="col-xl-1 col-lg-12 d-flex justify-content-center order-3">
+                    <div class="">
+                        <div class="daybtn d-flex flex-xl-column">
+                            <input type="button" class="btn slide-five" value="15:00">
+                            <input type="button" class="btn slide-six" value="16:00">
+                            <input type="button" class="btn slide-seven" value="17:00">
+                            <input type="button" class="btn slide-eight" value="18:00">
+                            <input type="button" class="btn slide-nine" value="19:00">
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!-- section3-2 -->
+        <!-- subtitle -->
+
+        <div class="serve container">
+            <div class="d-flex justify-content-center ">
+                <img class="subtitle" src="img/0_word-3-2-serve.png" alt="icon">
+            </div>
+            <div class="row">
+                <!-- table -->
+                <table class="table table-borderless text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">服務項目</th>
+                            <th scope="col">服務時間</th>
+                            <th scope="col">收費標準</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">平日</th>
+                            <td>08：00 ~ 18：00</td>
+                            <td>$ 18,000 / 月</td>
+                        </tr>
+                        <tr class="striped">
+                            <th scope="row">延時托兒
+                                <div>白天</div>
+                                <div>晚上</div>
+                                <div class="small">18:00前告知</div>
+                            </th>
+                            <td id="position">
+                                <div>07：00 ~ 08：00</div>
+                                <div>18：00 ~ 19：00</div>
+                            </td>
+                            <td>$ 150 / 時</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">臨時托兒
+                                <div>平日</div>
+                                <div>假日</div>
+                                <div class="small">提前三天預約</div>
+                            </th>
+                            <td>
+                                <div>08：00 ~ 18：00</div>
+                                <div>09：00 ~ 17：00</div>
+                            </td>
+                            <td>$ 200 / 時</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+
+
+        <!-- section4 -->
+        <!-- title -->
+        <section id="information" class="container">
+            <div class="d-flex justify-content-center">
+                <div>
+                    <img class="title" src="img/0_word-4-1-news.png" alt="icon">
+                </div>
+
+            </div>
+            <!-- subtitle4-1-->
+            <div class="row d-flex justify-content-center">
+                <div class="col list">
+                    <div class="d-flex justify-content-center">
+                        <img class="list-title" src="img/0_word-4-1-left-news.png" alt="icon">
+                    </div>
+                    <div class="news list-group">
+                        <a class="list-group-item" href="">2019-3-01-本周菜單-12/01~12/05菜單</a>
+                        <a class="list-group-item" href="">2019-3-02-新進教材-繪本:好餓的毛毛蟲</a>
+                        <a class="list-group-item" href="">2019-3-03-新進教材-教具:積木</a>
+                        <a class="list-group-item" href="">2019-3-04-宣導-預防腸病毒</a>
+                        <a class="list-group-item" href="">2019-3-05-宣導-流感疫苗接種</a>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <img class="btn" src="img/0_4-1-button.png" alt="button">
+                    </div>
+                </div>
+
+                <!-- subtitle4-2-->
+                <div class="col list">
+                    <div class="d-flex justify-content-center">
+                        <img class="list-title" src="img/0_word-4-2-information.png" alt="icon">
+                    </div>
+                    <div class="knowledge list-group">
+                        <a class="list-group-item" href="">2019-3-01-育兒補助相關資訊</a>
+                        <a class="list-group-item" href="">2019-3-02-文章分享-打破發燒迷思</a>
+                        <a class="list-group-item" href="">2019-3-03-文章分享-0~5歲兒童發展重點</a>
+                        <a class="list-group-item" href="">2019-3-04-文章分享-關於感覺統合教育</a>
+                        <a class="list-group-item" href="">2019-3-05-文章分享-孩子的睡眠時間</a>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <img class="btn" src="img/0_4-1-button.png" alt="button">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <footer>
+            <section class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="d-none d-sm-block ">
+                        <ol class="breadcrumb flex-nowrap">
+                            <li class="breadcrumb-item d-flex justify-content-center"><a href="#born"><img
+                                        class="d-block w-100" src="img/0_footer-menu01.png" alt=""></a></li>
+                            <li class="breadcrumb-item d-flex justify-content-center"><a href="#introduce"><img
+                                        class="d-block w-100" src="img/0_footer-menu02.png" alt=""></a></li>
+                            <li class="breadcrumb-item d-flex justify-content-center"><a href="#day"><img
+                                        class="d-block w-100" src="img/0_footer-menu03.png" alt=""></a></li>
+                            <li class="breadcrumb-item d-flex justify-content-center"><a href="#information"><img
+                                        class="d-block w-100" src="img/0_footer-menu04.png" alt=""></a></li>
+                        </ol>
+                    </div>
+
+                </div>
+                <div class="row ">
+                    <span class="col d-flex justify-content-sm-end justify-content-xs-start">
+                        <a href=""><img src="img/0_footer-name.png" alt="name"></a>
+                    </span>
+                    <span class="col">
+                        <a href=""><img src="img/0_footer-phone.png" alt="name"></a>
+                    </span>
+
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <p class="addr d-flex justify-content-center">427台中市潭子區頭張路二段89巷14弄56號<a href=""></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row map">
+                    <div class="col d-flex justify-content-center">
+                        <a
+                            href="https://www.google.com/maps/place/427%E5%8F%B0%E4%B8%AD%E5%B8%82%E6%BD%AD%E5%AD%90%E5%8D%80%E9%A0%AD%E5%BC%B5%E8%B7%AF%E4%BA%8C%E6%AE%B589%E5%B7%B714%E5%BC%8456%E8%99%9F/@24.1937781,120.6942397,17z/data=!3m1!4b1!4m5!3m4!1s0x3469179a47c156b7:0xc8f7559e50a082c1!8m2!3d24.1937781!4d120.6964284"><img
+                                src="img/0_map.png" alt="map position WeiShung"></a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col ">
+                        <p class="small text-center">本網站僅供個人練習，圖片來自網路，如有侵權請來信告知sherryliu0812@gmail.com<br>2019 © WeiShung all rights reserved.</p>
+                    </div>
+                </div>
+
+
+
+
+            </section>
+        </footer>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+        <script>
+            $(function () {
+                // 循环轮播到某个特定的帧 
+                $(".slide-zero").click(function () {
+                    $("#carouselExampleIndicators3").carousel(0);
+                });
+                $(".slide-one").click(function () {
+                    $("#carouselExampleIndicators3").carousel(1);
+                });
+                $(".slide-two").click(function () {
+                    $("#carouselExampleIndicators3").carousel(2);
+                });
+                $(".slide-three").click(function () {
+                    $("#carouselExampleIndicators3").carousel(3);
+                });
+                $(".slide-four").click(function () {
+                    $("#carouselExampleIndicators3").carousel(4);
+                });
+                $(".slide-five").click(function () {
+                    $("#carouselExampleIndicators3").carousel(5);
+                });
+                $(".slide-six").click(function () {
+                    $("#carouselExampleIndicators3").carousel(6);
+                });
+                $(".slide-seven").click(function () {
+                    $("#carouselExampleIndicators3").carousel(7);
+                });
+                $(".slide-eight").click(function () {
+                    $("#carouselExampleIndicators3").carousel(8);
+                });
+                $(".slide-nine").click(function () {
+                    $("#carouselExampleIndicators3").carousel(9);
+                });
+
+                // hide ul collapse
+                $(".collapse ul").click(function () {
+
+                    $(".navbar-collapse").hide();
+
+                });
+                // button toggle
+                $(".mobile-nav button").click(function () {
+
+                    $(".navbar-collapse").show();
+
+                });
+            });
+
+
+        </script>
 </body>
+
 </html>
